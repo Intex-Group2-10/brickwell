@@ -1,5 +1,6 @@
 using brickwell.Data;
 using brickwell.Models;
+using IntexGroup210.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
@@ -13,12 +14,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddDbContext<LegoDbContext>(options =>
-//{
-//options.UseSqlite(builder.Configuration["ConnectionStrings:LegoConnection"]);
-//});
+builder.Services.AddDbContext<LegoDbContext>(options =>
+{
+options.UseSqlite(builder.Configuration["ConnectionStrings:LegoConnection"]);
+});
 
-//builder.Services.AddScoped<ILegoRepository, EFLegoRepository>();
+builder.Services.AddScoped<ILegoRepository, EFLegoRepository>();
 
 var app = builder.Build();
 
